@@ -1,0 +1,13 @@
+# File che Git deve ignorare (non finiscono nella storia del progetto)
+
+# File temporanei di Python
+__pycache__/
+*.pyc
+.venv/
+
+# File di blocco che Excel crea mentre un foglio è aperto
+~$*.xlsx
+
+# File di sistema di Windows e OneDrive
+Thumbs.db
+desktop.ini
