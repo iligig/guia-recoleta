@@ -24,6 +24,12 @@ dati/tombe.xlsx  ──►  script Python  ──►  app/tombe.json  ──► 
 | `script/` | Gli script Python |
 | `app/` | La web app |
 
+## Fonte dei dati
+
+Nomi e coordinate delle tombe vengono da [OpenStreetMap](https://www.openstreetmap.org/copyright): © OpenStreetMap contributors, licenza ODbL. L'app deve mostrare questa dicitura.
+
+Il foglio `altre_tombe_osm` dentro `dati/tombe.xlsx` contiene tutte le altre tombe segnate su OpenStreetMap, da cui scegliere le prossime da aggiungere.
+
 ## Strumenti
 
 - [VS Code](https://code.visualstudio.com/): l'editor per scrivere il codice
