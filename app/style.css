@@ -181,6 +181,34 @@ body.scheda-aperta .comandi { display: none; }
   cursor: pointer;
 }
 
+/* La foto in cima alla scheda */
+.foto {
+  margin: 0 0 12px;
+}
+
+.foto img {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;          /* riempie il riquadro, tagliando i bordi se serve */
+  border-radius: 12px;
+  background: var(--pietra);
+}
+
+.foto.verticale img {
+  object-fit: contain;        /* le foto verticali si vedono intere */
+}
+
+.foto figcaption {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: var(--testo-tenue);
+}
+
+.foto figcaption a {
+  color: inherit;
+}
+
 .scheda h2 {
   margin: 0 0 6px;
   font-size: 1.25rem;

@@ -24,6 +24,10 @@ for tomba in tombe.to_dict("records"):
         },
         "fonti": tomba["fonti"].split(),
         "leggenda": tomba["leggenda"].strip() == "sì",
+        # La foto è facoltativa: se la casella è vuota, l'app non la mostra
+        "foto": tomba["foto"].strip(),
+        "foto_credito": tomba["foto_credito"].strip(),
+        "foto_pagina": tomba["foto_pagina"].strip(),
     })
 
 # Scriviamo tutte le schede nel file che l'app leggerà

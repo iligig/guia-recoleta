@@ -11,6 +11,7 @@ const TESTI = {
     posizione: "Mi ubicación",
     portami: "Cómo llegar",
     fonti: "Fuentes",
+    foto: "Foto",
     leggenda: "Leyenda",
     chiudi: "Cerrar",
     errore_dati: "No se pudieron cargar las tumbas.",
@@ -23,6 +24,7 @@ const TESTI = {
     posizione: "La mia posizione",
     portami: "Portami qui",
     fonti: "Fonti",
+    foto: "Foto",
     leggenda: "Leggenda",
     chiudi: "Chiudi",
     errore_dati: "Non è stato possibile caricare le tombe.",
@@ -185,6 +187,7 @@ function disegnaScheda() {
   const tomba = tombe.find((t) => t.id === inScheda);
   if (!tomba) return;
 
+  if (tomba.foto) contenuto.append(creaFoto(tomba, testi));
   contenuto.append(crea("h2", tomba.nome));
   if (tomba.leggenda) contenuto.append(crea("span", testi.leggenda, "etichetta-leggenda"));
 
@@ -213,6 +216,33 @@ function disegnaScheda() {
     blocco.append(lista);
     contenuto.append(blocco);
   }
+}
+
+// La foto della tomba, con sotto autore e licenza (le licenze libere chiedono di citarli)
+function creaFoto(tomba, testi) {
+  const figura = crea("figure", "", "foto");
+  const immagine = document.createElement("img");
+  immagine.src = tomba.foto;
+  immagine.alt = tomba.nome;
+  immagine.decoding = "async";
+  immagine.addEventListener("load", () => {
+    // Le foto verticali (più alte che larghe) le mostriamo intere, senza tagliarle
+    if (immagine.naturalHeight > immagine.naturalWidth) figura.classList.add("verticale");
+  });
+  // Se la foto non si carica (per esempio senza internet), la togliamo invece di mostrare un riquadro vuoto
+  immagine.addEventListener("error", () => figura.remove());
+  figura.append(immagine);
+
+  if (tomba.foto_credito) {
+    const didascalia = crea("figcaption");
+    const link = crea("a", `${testi.foto}: ${tomba.foto_credito}`);
+    link.href = tomba.foto_pagina || tomba.foto;
+    link.target = "_blank";
+    link.rel = "noopener";
+    didascalia.append(link);
+    figura.append(didascalia);
+  }
+  return figura;
 }
 
 // ---------- La lingua ----------

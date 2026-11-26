@@ -12,7 +12,10 @@
       "https://es.wikipedia.org/wiki/Eva_Perón",
       "https://es.wikipedia.org/wiki/Cementerio_de_la_Recoleta"
     ],
-    "leggenda": false
+    "leggenda": false,
+    "foto": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Tomb_of_Eva_Peron.JPG/960px-Tomb_of_Eva_Peron.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "foto_credito": "Joshua Doubek · CC BY-SA 3.0",
+    "foto_pagina": "https://commons.wikimedia.org/wiki/File:Tomb_of_Eva_Peron.JPG"
   },
   {
     "id": "rufina",
@@ -27,7 +30,10 @@
       "https://es.wikipedia.org/wiki/Rufina_Cambaceres",
       "https://es.wikipedia.org/wiki/Cementerio_de_la_Recoleta"
     ],
-    "leggenda": true
+    "leggenda": true,
+    "foto": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Cementerio_La_Recoleta_Bs_As.jpg/960px-Cementerio_La_Recoleta_Bs_As.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "foto_credito": "Elemaki · CC BY 3.0",
+    "foto_pagina": "https://commons.wikimedia.org/wiki/File:Cementerio_La_Recoleta_Bs_As.jpg"
   },
   {
     "id": "liliana",
@@ -41,7 +47,10 @@
     "fonti": [
       "https://es.wikipedia.org/wiki/Tumba_de_Liliana_Crociati_de_Szaszak"
     ],
-    "leggenda": false
+    "leggenda": false,
+    "foto": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Tombs_of_Liliana_Crociati_de_Szaszak_and_R_Fuchs-Ritrovato.jpg/960px-Tombs_of_Liliana_Crociati_de_Szaszak_and_R_Fuchs-Ritrovato.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "foto_credito": "GeoEvan (www.polgeonow.com) · CC BY-SA 4.0",
+    "foto_pagina": "https://commons.wikimedia.org/wiki/File:Tombs_of_Liliana_Crociati_de_Szaszak_and_R_Fuchs-Ritrovato.jpg"
   },
   {
     "id": "sarmiento",
@@ -56,7 +65,10 @@
       "https://es.wikipedia.org/wiki/Domingo_Faustino_Sarmiento",
       "https://es.wikipedia.org/wiki/Cementerio_de_la_Recoleta"
     ],
-    "leggenda": false
+    "leggenda": false,
+    "foto": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Buenos_Aires_-_Recoleta_-_Sepulcro_de_Domingo_Faustino_Sarmiento_%28vista_de_atr%C3%A1s%29.JPG/960px-Buenos_Aires_-_Recoleta_-_Sepulcro_de_Domingo_Faustino_Sarmiento_%28vista_de_atr%C3%A1s%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "foto_credito": "Galio · CC BY-SA 3.0",
+    "foto_pagina": "https://commons.wikimedia.org/wiki/File:Buenos_Aires_-_Recoleta_-_Sepulcro_de_Domingo_Faustino_Sarmiento_(vista_de_atr%C3%A1s).JPG"
   },
   {
     "id": "quiroga",
@@ -71,6 +83,9 @@
       "https://es.wikipedia.org/wiki/Facundo_Quiroga",
       "https://es.wikipedia.org/wiki/Cementerio_de_la_Recoleta"
     ],
-    "leggenda": false
+    "leggenda": false,
+    "foto": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Recoleta_036.jpg/960px-Recoleta_036.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "foto_credito": "Claudio Elias · CC BY-SA 3.0",
+    "foto_pagina": "https://commons.wikimedia.org/wiki/File:Recoleta_036.jpg"
   }
 ]
