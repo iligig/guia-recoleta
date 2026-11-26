@@ -1,0 +1,76 @@
+[
+  {
+    "id": "evita",
+    "nome": "Eva Perón (bóveda Familia Duarte)",
+    "lat": -34.5883479,
+    "lon": -58.3936941,
+    "storia": {
+      "es": "María Eva Duarte de Perón, «Evita» (1919-1952), fue actriz y primera dama de la Argentina como esposa del presidente Juan Domingo Perón. Defendió a los trabajadores y a los más pobres e impulsó el voto femenino. Murió de cáncer a los 33 años y su cuerpo fue embalsamado. Tras el golpe militar de 1955 el cadáver fue robado y escondido: en 1957 lo enterraron en secreto en Milán, bajo un nombre falso, María Maggi de Magistris. En 1971 fue devuelto a Perón, exiliado en Madrid, y en 1974 volvió a la Argentina. Desde 1976 descansa aquí, en la bóveda Art Déco de la familia Duarte, tan protegida que, según sus biógrafos, resistiría un ataque nuclear.",
+      "it": "María Eva Duarte de Perón, «Evita» (1919-1952), fu attrice e first lady dell'Argentina come moglie del presidente Juan Domingo Perón. Difese i lavoratori e i più poveri e si batté per il voto alle donne. Morì di cancro a 33 anni e il suo corpo fu imbalsamato. Dopo il colpo di Stato militare del 1955 la salma fu rubata e nascosta: nel 1957 fu sepolta in segreto a Milano, sotto un falso nome, María Maggi de Magistris. Nel 1971 fu restituita a Perón, in esilio a Madrid, e nel 1974 tornò in Argentina. Dal 1976 riposa qui, nella cappella Art Déco della famiglia Duarte, così protetta che secondo i suoi biografi resisterebbe a un attacco nucleare."
+    },
+    "fonti": [
+      "https://es.wikipedia.org/wiki/Eva_Perón",
+      "https://es.wikipedia.org/wiki/Cementerio_de_la_Recoleta"
+    ],
+    "leggenda": false
+  },
+  {
+    "id": "rufina",
+    "nome": "Rufina Cambaceres",
+    "lat": -34.5881956,
+    "lon": -58.3932312,
+    "storia": {
+      "es": "Rufina Cambaceres nació en París en 1883, hija del escritor argentino Eugenio Cambaceres y de la bailarina italiana Luisa Bacichi. Murió de repente el 31 de mayo de 1902, el día en que cumplía 19 años. Según la leyenda más famosa del cementerio, no estaba muerta sino en un estado de catalepsia: días después del entierro el ataúd habría aparecido movido y con arañazos por dentro. No hay pruebas de que esto haya ocurrido. Su madre le hizo construir este sepulcro Art Nouveau, obra del alemán Richard Aigner, en el que Rufina aparece de pie, con la mano en el picaporte, como si estuviera a punto de abrir la puerta.",
+      "it": "Rufina Cambaceres nacque a Parigi nel 1883, figlia dello scrittore argentino Eugenio Cambaceres e della ballerina italiana Luisa Bacichi. Morì all'improvviso il 31 maggio 1902, il giorno del suo diciannovesimo compleanno. Secondo la leggenda più famosa del cimitero non era morta, ma in uno stato di catalessi: giorni dopo la sepoltura la bara sarebbe stata trovata spostata, con graffi all'interno. Non ci sono prove che sia andata così. La madre le fece costruire questo sepolcro Liberty, opera del tedesco Richard Aigner: Rufina è raffigurata in piedi, con la mano sulla maniglia, come se stesse per aprire la porta."
+    },
+    "fonti": [
+      "https://es.wikipedia.org/wiki/Rufina_Cambaceres",
+      "https://es.wikipedia.org/wiki/Cementerio_de_la_Recoleta"
+    ],
+    "leggenda": true
+  },
+  {
+    "id": "liliana",
+    "nome": "Liliana Crociati de Szaszak",
+    "lat": -34.5883955,
+    "lon": -58.3931507,
+    "storia": {
+      "es": "Liliana Crociati de Szaszak murió a los 26 años. En febrero de 1970 estaba de luna de miel en los Alpes austríacos con su esposo, Janos Szaszak, cuando de noche una avalancha golpeó su hotel. Él sobrevivió; ella fue llevada en helicóptero a Innsbruck, donde murió días después. Era hija única, y su madre diseñó esta tumba neogótica con grandes vitrales, muy luminosa, distinta de todas las demás. Afuera, una estatua de bronce de Wilfredo Viladrich la muestra en tamaño real con su vestido de novia y la mano sobre la cabeza de su perro Sabú. Muchos visitantes le tocan el hocico al perro porque dicen que trae buena suerte: por eso brilla. Al lado hay un poema en italiano escrito por su padre. Sus padres, que nunca se recuperaron, descansan junto a ella.",
+      "it": "Liliana Crociati de Szaszak morì a 26 anni. Nel febbraio del 1970 era in luna di miele sulle Alpi austriache con il marito, Janos Szaszak, quando di notte una valanga travolse il loro albergo. Lui si salvò; lei fu portata in elicottero a Innsbruck, dove morì pochi giorni dopo. Era figlia unica e la madre progettò per lei questa tomba neogotica con grandi vetrate, piena di luce, diversa da tutte le altre. Fuori, una statua in bronzo di Wilfredo Viladrich la ritrae a grandezza naturale nel suo abito da sposa, con la mano sulla testa del suo cane Sabú. Molti visitatori toccano il muso del cane perché si dice che porti fortuna: per questo brilla. Accanto c'è una poesia in italiano scritta dal padre. I genitori, che non si ripresero mai, riposano accanto a lei."
+    },
+    "fonti": [
+      "https://es.wikipedia.org/wiki/Tumba_de_Liliana_Crociati_de_Szaszak"
+    ],
+    "leggenda": false
+  },
+  {
+    "id": "sarmiento",
+    "nome": "Domingo Faustino Sarmiento",
+    "lat": -34.5885011,
+    "lon": -58.3933342,
+    "storia": {
+      "es": "Domingo Faustino Sarmiento (1811-1888) fue presidente de la Argentina entre 1868 y 1874, escritor, periodista y, sobre todo, educador: creía que la escuela pública era la base de una nación moderna y la impulsó en todo el país. Su libro más famoso, «Facundo» (1845), cuenta la vida del caudillo Facundo Quiroga, enterrado también en este cementerio, y plantea el dilema entre «civilización y barbarie». Murió en Asunción, Paraguay, y fue sepultado aquí diez días después. Su tumba es un obelisco coronado por un cóndor de bronce, con la inscripción «Civilización y Barbarie». Ante ella, Carlos Pellegrini dijo que había sido «el cerebro más poderoso que haya producido la América».",
+      "it": "Domingo Faustino Sarmiento (1811-1888) fu presidente dell'Argentina dal 1868 al 1874, scrittore, giornalista e soprattutto educatore: era convinto che la scuola pubblica fosse la base di una nazione moderna e la promosse in tutto il paese. Il suo libro più famoso, «Facundo» (1845), racconta la vita del caudillo Facundo Quiroga, sepolto anche lui in questo cimitero, e pone il dilemma tra «civiltà e barbarie». Morì ad Asunción, in Paraguay, e fu sepolto qui dieci giorni dopo. La tomba è un obelisco sormontato da un condor di bronzo, con la scritta «Civilización y Barbarie». Davanti alla sua tomba Carlos Pellegrini disse che era stato «il cervello più potente che l'America abbia prodotto»."
+    },
+    "fonti": [
+      "https://es.wikipedia.org/wiki/Domingo_Faustino_Sarmiento",
+      "https://es.wikipedia.org/wiki/Cementerio_de_la_Recoleta"
+    ],
+    "leggenda": false
+  },
+  {
+    "id": "quiroga",
+    "nome": "Juan Facundo Quiroga",
+    "lat": -34.5875622,
+    "lon": -58.3923641,
+    "storia": {
+      "es": "Juan Facundo Quiroga (1788-1835), llamado «el Tigre de los Llanos», fue un caudillo riojano y uno de los jefes federales más temidos de las guerras civiles argentinas. El 16 de febrero de 1835 su carruaje cayó en una emboscada en Barranca Yaco, en Córdoba, y murió de un disparo. Al año siguiente sus restos fueron traídos a la Recoleta. Tras la caída de Rosas, en 1852, la familia escondió el ataúd dentro de una pared para protegerlo de la venganza de sus enemigos. A comienzos de este siglo un equipo de investigadores lo encontró allí: un cajón de bronce colocado de pie. Según la tradición oral, a sus pies descansan los restos de su esposa. Sobre la tumba se alza una Dolorosa de mármol de Carrara del italiano Antonio Tantardini, considerada la primera obra de arte del cementerio. Su vida inspiró el «Facundo» de Sarmiento, que también descansa aquí.",
+      "it": "Juan Facundo Quiroga (1788-1835), detto «la Tigre dei Llanos», fu un caudillo della Rioja e uno dei capi federali più temuti delle guerre civili argentine. Il 16 febbraio 1835 la sua carrozza cadde in un'imboscata a Barranca Yaco, in provincia di Córdoba, e lui fu ucciso da uno sparo. L'anno dopo i suoi resti furono portati alla Recoleta. Dopo la caduta di Rosas, nel 1852, la famiglia nascose la bara dentro un muro per proteggerla dalla vendetta dei nemici. All'inizio di questo secolo un gruppo di ricercatori l'ha ritrovata lì: una cassa di bronzo messa in piedi. Secondo la tradizione orale, ai suoi piedi riposano i resti della moglie. Sopra la tomba si alza una Dolorosa in marmo di Carrara dell'italiano Antonio Tantardini, considerata la prima opera d'arte del cimitero. La sua vita ispirò il «Facundo» di Sarmiento, sepolto anche lui qui."
+    },
+    "fonti": [
+      "https://es.wikipedia.org/wiki/Facundo_Quiroga",
+      "https://es.wikipedia.org/wiki/Cementerio_de_la_Recoleta"
+    ],
+    "leggenda": false
+  }
+]

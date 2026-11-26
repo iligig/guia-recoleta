@@ -24,6 +24,16 @@ dati/tombe.xlsx  ──►  script Python  ──►  app/tombe.json  ──► 
 | `script/` | Gli script Python |
 | `app/` | La web app |
 
+## Come aggiornare e provare l'app
+
+1. Modifica `dati/tombe.xlsx`, poi salva e **chiudi Excel**.
+2. Controlla il foglio: `python script/controlla_foglio.py`
+3. Prepara i dati per l'app: `python script/esporta_json.py` (crea `app/tombe.json`)
+4. Avvia l'app sul computer: `python -m http.server 8000 --directory app`
+5. Apri <http://localhost:8000> nel browser. Per fermarla, nel terminale premi Ctrl+C.
+
+La posizione GPS funziona solo su `localhost` o su un sito `https://`.
+
 ## Fonte dei dati
 
 Nomi e coordinate delle tombe vengono da [OpenStreetMap](https://www.openstreetmap.org/copyright): © OpenStreetMap contributors, licenza ODbL. L'app deve mostrare questa dicitura.

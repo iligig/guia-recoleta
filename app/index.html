@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Recoleta · Guía del cementerio</title>
+  <meta name="description" content="Mapa de las tumbas más interesantes del Cementerio de la Recoleta, con sus historias.">
+  <meta name="theme-color" content="#2f3a2f">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- La barra in alto: titolo e scelta della lingua -->
+  <header class="barra">
+    <h1 id="titolo">Cementerio de la Recoleta</h1>
+    <div class="lingue" role="group" aria-label="Idioma / Lingua">
+      <button type="button" data-lingua="es">ES</button>
+      <button type="button" data-lingua="it">IT</button>
+    </div>
+  </header>
+
+  <!-- La mappa -->
+  <main id="mappa"></main>
+
+  <!-- I due pulsanti in basso -->
+  <div class="comandi">
+    <button type="button" id="bottone-elenco" class="bottone-tondo"></button>
+    <button type="button" id="bottone-posizione" class="bottone-tondo"></button>
+  </div>
+
+  <!-- La scheda che si apre dal basso: una tomba oppure l'elenco -->
+  <section id="scheda" class="scheda" hidden>
+    <button type="button" id="chiudi-scheda" class="chiudi">×</button>
+    <div id="contenuto-scheda"></div>
+  </section>
+
+  <!-- Brevi messaggi (per esempio "sto cercando la tua posizione") -->
+  <div id="avviso" class="avviso" role="status" hidden></div>
+
+  <noscript>Esta guía necesita JavaScript.</noscript>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
