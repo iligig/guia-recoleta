@@ -302,7 +302,8 @@ document.addEventListener("keydown", (e) => {
 
 impostaLingua(lingua);
 
-fetch("tombe.json")
+// "no-cache": chiede sempre al sito se le tombe sono cambiate, così le modifiche al foglio arrivano subito
+fetch("tombe.json", { cache: "no-cache" })
   .then((risposta) => {
     if (!risposta.ok) throw new Error(risposta.status);
     return risposta.json();

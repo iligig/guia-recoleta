@@ -34,6 +34,13 @@ dati/tombe.xlsx  ──►  script Python  ──►  app/tombe.json  ──► 
 
 La posizione GPS funziona solo su `localhost` o su un sito `https://`.
 
+### Aggiornamenti e memoria dei browser
+
+GitHub Pages fa tenere ai browser una copia dei file per 10 minuti, e Chrome la usa anche se ricarichi la pagina. Per questo:
+
+- `tombe.json` viene sempre ricontrollato dall'app: le modifiche al foglio arrivano subito.
+- Se cambi `app.js` o `style.css`, aumenta il numero dopo `?v=` in `app/index.html` (es. da `?v=5` a `?v=6`). Chi ricarica la pagina riceve subito i file nuovi.
+
 ## Fonte dei dati
 
 Nomi e coordinate delle tombe vengono da [OpenStreetMap](https://www.openstreetmap.org/copyright): © OpenStreetMap contributors, licenza ODbL. L'app deve mostrare questa dicitura.
