@@ -3,7 +3,7 @@
 // Il centro della mappa quando si apre l'app (attenzione: qui prima la longitudine, poi la latitudine)
 const CENTRO_CIMITERO = [-58.3935, -34.5876];
 
-// Tutte le scritte dell'app, nelle due lingue
+// Tutte le scritte dell'app, nelle quattro lingue
 const TESTI = {
   es: {
     titolo: "Cementerio de la Recoleta",
@@ -31,10 +31,48 @@ const TESTI = {
     errore_posizione: "Non è stato possibile trovare la tua posizione.",
     cerco_posizione: "Cerco la tua posizione…",
   },
+  en: {
+    titolo: "Recoleta Cemetery",
+    elenco: "Tombs",
+    posizione: "My location",
+    portami: "Take me there",
+    fonti: "Sources",
+    foto: "Photo",
+    leggenda: "Legend",
+    chiudi: "Close",
+    errore_dati: "The tombs could not be loaded.",
+    errore_posizione: "Your location could not be found.",
+    cerco_posizione: "Finding your location…",
+  },
+  pt: {
+    titolo: "Cemitério da Recoleta",
+    elenco: "Túmulos",
+    posizione: "Minha localização",
+    portami: "Como chegar",
+    fonti: "Fontes",
+    foto: "Foto",
+    leggenda: "Lenda",
+    chiudi: "Fechar",
+    errore_dati: "Não foi possível carregar os túmulos.",
+    errore_posizione: "Não foi possível encontrar sua localização.",
+    cerco_posizione: "Buscando sua localização…",
+  },
 };
 
+// La lingua iniziale: quella scelta l'ultima volta, altrimenti quella del telefono,
+// altrimenti l'inglese (per i turisti che parlano altre lingue)
+function linguaIniziale() {
+  const salvata = localStorage.getItem("lingua");
+  if (salvata in TESTI) return salvata;
+  for (const codice of navigator.languages || [navigator.language]) {
+    const breve = codice.slice(0, 2).toLowerCase();
+    if (breve in TESTI) return breve;
+  }
+  return "en";
+}
+
 // Lo "stato" dell'app: cosa sta mostrando in questo momento
-let lingua = localStorage.getItem("lingua") || (navigator.language.startsWith("it") ? "it" : "es");
+let lingua = linguaIniziale();
 let tombe = [];             // le tombe lette da tombe.json
 let segnaposti = {};        // id della tomba -> segnaposto sulla mappa
 let inScheda = null;        // "elenco", l'id di una tomba, oppure null se la scheda è chiusa
@@ -205,7 +243,8 @@ function disegnaScheda() {
   portami.rel = "noopener";
   contenuto.append(portami);
 
-  const storia = tomba.storia[lingua] || tomba.storia.es;
+  // Se manca la storia in questa lingua, mostriamo quella in inglese o in spagnolo
+  const storia = tomba.storia[lingua] || tomba.storia.en || tomba.storia.es;
   contenuto.append(crea("p", storia));
 
   if (tomba.fonti.length > 0) {
@@ -262,9 +301,7 @@ function impostaLingua(nuovaLingua) {
   document.getElementById("titolo").textContent = testi.titolo;
   document.getElementById("bottone-elenco").textContent = testi.elenco;
   document.getElementById("bottone-posizione").textContent = testi.posizione;
-  document.querySelectorAll(".lingue button").forEach((b) => {
-    b.setAttribute("aria-pressed", String(b.dataset.lingua === lingua));
-  });
+  document.getElementById("scelta-lingua").value = lingua;
   if (inScheda) disegnaScheda();
 }
 
@@ -290,9 +327,7 @@ function mostraPosizione() {
 }
 
 // ---------- Avvio ----------
-document.querySelectorAll(".lingue button").forEach((b) => {
-  b.addEventListener("click", () => impostaLingua(b.dataset.lingua));
-});
+document.getElementById("scelta-lingua").addEventListener("change", (e) => impostaLingua(e.target.value));
 document.getElementById("bottone-elenco").addEventListener("click", () => apriScheda("elenco"));
 document.getElementById("bottone-posizione").addEventListener("click", mostraPosizione);
 document.getElementById("chiudi-scheda").addEventListener("click", chiudiScheda);

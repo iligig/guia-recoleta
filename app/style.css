@@ -42,28 +42,31 @@ body {
   letter-spacing: 0.01em;
 }
 
+/* Il menu a tendina delle lingue (con una freccina disegnata da noi) */
 .lingue {
-  display: flex;
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 999px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.lingue button {
-  border: 0;
-  background: transparent;
+  padding: 6px 30px 6px 12px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23f4efe6' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 11px center;
   color: #f4efe6;
   font: inherit;
   font-size: 0.85rem;
   font-weight: 600;
-  padding: 6px 12px;
   cursor: pointer;
 }
 
-.lingue button[aria-pressed="true"] {
-  background: #f4efe6;
-  color: var(--verde);
+.lingue:focus-visible {
+  outline: 2px solid #f4efe6;
+  outline-offset: 2px;
+}
+
+/* Le voci del menu aperto: testo scuro su sfondo chiaro */
+.lingue option {
+  color: var(--testo);
+  background: #fff;
 }
 
 /* ---------- Mappa ---------- */

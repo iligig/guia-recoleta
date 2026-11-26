@@ -7,7 +7,7 @@ for tomba in tombe.to_dict("records"):
     problemi = []
 
     # Le caselle che non devono restare vuote
-    for colonna in ["storia_es", "storia_it", "fonti"]:
+    for colonna in ["storia_es", "storia_it", "storia_en", "storia_pt", "fonti"]:
         if tomba[colonna] == "":
             problemi.append("manca " + colonna)
 

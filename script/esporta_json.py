@@ -22,6 +22,8 @@ for tomba in tombe.to_dict("records"):
         "storia": {
             "es": tomba["storia_es"].strip(),
             "it": tomba["storia_it"].strip(),
+            "en": tomba["storia_en"].strip(),
+            "pt": tomba["storia_pt"].strip(),
         },
         "fonti": tomba["fonti"].split(),
         "leggenda": tomba["leggenda"].strip() == "sì",
