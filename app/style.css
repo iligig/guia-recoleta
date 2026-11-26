@@ -167,6 +167,17 @@ body {
   cursor: pointer;
 }
 
+/* Il pulsante tondo "i" di "Chi siamo" */
+.bottone-info {
+  width: 46px;
+  padding: 12px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
 body.scheda-aperta .comandi { display: none; }
 
 /* ---------- Scheda che sale dal basso ---------- */
@@ -285,6 +296,33 @@ body.scheda-aperta .comandi { display: none; }
 .fonti ul {
   margin: 4px 0 0;
   padding-left: 18px;
+}
+
+/* Scheda "Chi siamo" */
+.sottotitolo-info {
+  margin-top: 0;
+  color: var(--bronzo-scuro);
+  font-weight: 600;
+}
+
+.scheda h3 {
+  margin: 18px 0 4px;
+  font-size: 1rem;
+}
+
+.lista-info {
+  margin: 4px 0 10px;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.lista-info li { margin: 3px 0; }
+.lista-info a { color: var(--bronzo-scuro); }
+
+.aggiornato-info {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--testo-tenue);
 }
 
 /* Elenco delle tombe */

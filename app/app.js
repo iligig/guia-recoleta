@@ -14,6 +14,7 @@ const TESTI = {
     foto: "Foto",
     leggenda: "Leyenda",
     chiudi: "Cerrar",
+    info: "Sobre esta guía",
     errore_dati: "No se pudieron cargar las tumbas.",
     errore_posizione: "No se pudo obtener tu ubicación.",
     cerco_posizione: "Buscando tu ubicación…",
@@ -27,6 +28,7 @@ const TESTI = {
     foto: "Foto",
     leggenda: "Leggenda",
     chiudi: "Chiudi",
+    info: "Chi siamo",
     errore_dati: "Non è stato possibile caricare le tombe.",
     errore_posizione: "Non è stato possibile trovare la tua posizione.",
     cerco_posizione: "Cerco la tua posizione…",
@@ -40,6 +42,7 @@ const TESTI = {
     foto: "Photo",
     leggenda: "Legend",
     chiudi: "Close",
+    info: "About",
     errore_dati: "The tombs could not be loaded.",
     errore_posizione: "Your location could not be found.",
     cerco_posizione: "Finding your location…",
@@ -53,11 +56,96 @@ const TESTI = {
     foto: "Foto",
     leggenda: "Lenda",
     chiudi: "Fechar",
+    info: "Sobre",
     errore_dati: "Não foi possível carregar os túmulos.",
     errore_posizione: "Não foi possível encontrar sua localização.",
     cerco_posizione: "Buscando sua localização…",
   },
 };
+
+// ---------- I testi della scheda "Chi siamo" ----------
+// Per correggere un testo basta cambiarlo qui, tra le virgolette, in tutte e quattro le lingue.
+const INFO = {
+  es: {
+    sottotitolo: "Guía gratuita del Cementerio de la Recoleta",
+    storia: "Esta guía nació de una visita: acá es fácil perderse, y las historias más lindas quedan ocultas si no se contrata una visita guiada. Por eso marqué en el mapa las tumbas más interesantes y conté su historia.",
+    non_ufficiale: ["Guía no oficial:", "no está vinculada al cementerio ni al Gobierno de la Ciudad de Buenos Aires."],
+    autore: "Creada por Gianluigi, estudiante italiano en Buenos Aires, como proyecto personal.",
+    come_titolo: "Cómo se usa",
+    come: [
+      "Tocá un número en el mapa para leer su historia",
+      "«Cómo llegar» te guía a pie con Google Maps",
+      "«Mi ubicación» te muestra dónde estás",
+    ],
+    privacy: ["Privacidad:", "la app no recopila ningún dato. Tu ubicación queda en tu teléfono."],
+    crediti_titolo: "Fuentes y créditos",
+    crediti_storie: "Historias basadas en Wikipedia y en las fuentes indicadas en cada ficha",
+    crediti_mappa: "Mapa:",
+    crediti_foto: "Fotos de Wikimedia Commons (autor y licencia en cada ficha)",
+    aggiornato: "Última actualización: noviembre de 2026",
+  },
+  it: {
+    sottotitolo: "Guida gratuita del Cimitero della Recoleta",
+    storia: "Questa guida nasce da una visita: qui è facile perdersi, e le storie più belle restano nascoste se non si paga una guida. Così ho segnato sulla mappa le tombe più interessanti e ho raccontato la loro storia.",
+    non_ufficiale: ["Guida non ufficiale:", "non è collegata al cimitero né al Governo della Città di Buenos Aires."],
+    autore: "Creata da Gianluigi, studente italiano a Buenos Aires, come progetto personale.",
+    come_titolo: "Come si usa",
+    come: [
+      "Tocca un numero sulla mappa per leggere la storia",
+      "«Portami qui» ti accompagna a piedi con Google Maps",
+      "«La mia posizione» ti mostra dove sei",
+    ],
+    privacy: ["Privacy:", "l'app non raccoglie nessun dato. La tua posizione resta sul tuo telefono."],
+    crediti_titolo: "Fonti e crediti",
+    crediti_storie: "Storie basate su Wikipedia e sulle fonti indicate in ogni scheda",
+    crediti_mappa: "Mappa:",
+    crediti_foto: "Foto da Wikimedia Commons (autore e licenza in ogni scheda)",
+    aggiornato: "Ultimo aggiornamento: novembre 2026",
+  },
+  en: {
+    sottotitolo: "A free guide to Recoleta Cemetery",
+    storia: "This guide was born from a visit: it's easy to get lost here, and the best stories stay hidden unless you pay for a guided tour. So I put the most interesting tombs on a map and told their stories.",
+    non_ufficiale: ["Unofficial guide:", "it is not affiliated with the cemetery or with the Buenos Aires City Government."],
+    autore: "Made by Gianluigi, an Italian student in Buenos Aires, as a personal project.",
+    come_titolo: "How to use it",
+    come: [
+      "Tap a number on the map to read its story",
+      "“Take me there” guides you on foot with Google Maps",
+      "“My location” shows where you are",
+    ],
+    privacy: ["Privacy:", "the app collects no data. Your location stays on your phone."],
+    crediti_titolo: "Sources and credits",
+    crediti_storie: "Stories based on Wikipedia and on the sources listed on each card",
+    crediti_mappa: "Map:",
+    crediti_foto: "Photos from Wikimedia Commons (author and license on each card)",
+    aggiornato: "Last updated: November 2026",
+  },
+  pt: {
+    sottotitolo: "Guia gratuito do Cemitério da Recoleta",
+    storia: "Este guia nasceu de uma visita: aqui é fácil se perder, e as histórias mais bonitas ficam escondidas se você não contratar um guia. Por isso marquei no mapa os túmulos mais interessantes e contei a história de cada um.",
+    non_ufficiale: ["Guia não oficial:", "não tem vínculo com o cemitério nem com o Governo da Cidade de Buenos Aires."],
+    autore: "Criado por Gianluigi, estudante italiano em Buenos Aires, como projeto pessoal.",
+    come_titolo: "Como usar",
+    come: [
+      "Toque em um número no mapa para ler a história",
+      "“Como chegar” leva você a pé com o Google Maps",
+      "“Minha localização” mostra onde você está",
+    ],
+    privacy: ["Privacidade:", "o app não coleta nenhum dado. Sua localização fica no seu celular."],
+    crediti_titolo: "Fontes e créditos",
+    crediti_storie: "Histórias baseadas na Wikipédia e nas fontes indicadas em cada ficha",
+    crediti_mappa: "Mapa:",
+    crediti_foto: "Fotos do Wikimedia Commons (autor e licença em cada ficha)",
+    aggiornato: "Última atualização: novembro de 2026",
+  },
+};
+
+// I crediti della mappa (uguali in tutte le lingue): obbligatori per le licenze libere
+const CREDITI_MAPPA = [
+  ["© OpenFreeMap", "https://openfreemap.org/"],
+  ["© OpenMapTiles", "https://www.openmaptiles.org/"],
+  ["© OpenStreetMap contributors", "https://www.openstreetmap.org/copyright"],
+];
 
 // La lingua iniziale: quella scelta l'ultima volta, altrimenti quella del telefono,
 // altrimenti l'inglese (per i turisti che parlano altre lingue)
@@ -214,6 +302,11 @@ function disegnaScheda() {
   contenuto.replaceChildren();
   document.getElementById("chiudi-scheda").setAttribute("aria-label", testi.chiudi);
 
+  if (inScheda === "info") {
+    disegnaInfo(contenuto, testi);
+    return;
+  }
+
   if (inScheda === "elenco") {
     contenuto.append(crea("h2", testi.elenco));
     const lista = crea("ul", "", "elenco");
@@ -265,6 +358,50 @@ function disegnaScheda() {
   }
 }
 
+// La scheda "Chi siamo"
+function disegnaInfo(contenuto, testi) {
+  const info = INFO[lingua];
+
+  // Un paragrafo che comincia con qualche parola in grassetto
+  function paragrafoConGrassetto([grassetto, resto]) {
+    const p = crea("p");
+    p.append(crea("strong", grassetto), " " + resto);
+    return p;
+  }
+
+  // Una lista puntata
+  function lista(voci) {
+    const ul = crea("ul", "", "lista-info");
+    for (const voce of voci) ul.append(voce instanceof Node ? voce : crea("li", voce));
+    return ul;
+  }
+
+  // I crediti della mappa, con i link
+  const mappaCrediti = crea("li");
+  mappaCrediti.append(info.crediti_mappa + " ");
+  CREDITI_MAPPA.forEach(([testo, indirizzo], i) => {
+    const link = crea("a", testo);
+    link.href = indirizzo;
+    link.target = "_blank";
+    link.rel = "noopener";
+    mappaCrediti.append(link, i < CREDITI_MAPPA.length - 1 ? ", " : "");
+  });
+
+  contenuto.append(
+    crea("h2", testi.info),
+    crea("p", info.sottotitolo, "sottotitolo-info"),
+    crea("p", info.storia),
+    paragrafoConGrassetto(info.non_ufficiale),
+    crea("p", info.autore),
+    crea("h3", info.come_titolo),
+    lista(info.come),
+    paragrafoConGrassetto(info.privacy),
+    crea("h3", info.crediti_titolo),
+    lista([info.crediti_storie, mappaCrediti, info.crediti_foto]),
+    crea("p", info.aggiornato, "aggiornato-info"),
+  );
+}
+
 // La foto della tomba, con sotto autore e licenza (le licenze libere chiedono di citarli)
 function creaFoto(tomba, testi) {
   const figura = crea("figure", "", "foto");
@@ -301,6 +438,8 @@ function impostaLingua(nuovaLingua) {
   document.getElementById("titolo").textContent = testi.titolo;
   document.getElementById("bottone-elenco").textContent = testi.elenco;
   document.getElementById("bottone-posizione").textContent = testi.posizione;
+  document.getElementById("bottone-info").setAttribute("aria-label", testi.info);
+  document.getElementById("bottone-info").title = testi.info;
   document.getElementById("scelta-lingua").value = lingua;
   if (inScheda) disegnaScheda();
 }
@@ -329,6 +468,10 @@ function mostraPosizione() {
 // ---------- Avvio ----------
 document.getElementById("scelta-lingua").addEventListener("change", (e) => impostaLingua(e.target.value));
 document.getElementById("bottone-elenco").addEventListener("click", () => apriScheda("elenco"));
+document.getElementById("bottone-info").addEventListener("click", () => {
+  evidenziaSegnaposto(null);
+  apriScheda("info");
+});
 document.getElementById("bottone-posizione").addEventListener("click", mostraPosizione);
 document.getElementById("chiudi-scheda").addEventListener("click", chiudiScheda);
 document.addEventListener("keydown", (e) => {
