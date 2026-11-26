@@ -72,7 +72,18 @@ body {
   background: var(--pietra);
 }
 
-/* Il segnaposto numerato di ogni tomba */
+/* Il segnaposto numerato di ogni tomba.
+   Attenzione: lo spostamento (transform) del contenitore lo gestisce la mappa, quindi gli effetti vanno sullo span */
+.segnaposto {
+  cursor: pointer;
+}
+
+.segnaposto:focus-visible { outline: none; }
+.segnaposto:focus-visible span {
+  outline: 3px solid #1a73e8;
+  outline-offset: 2px;
+}
+
 .segnaposto span {
   display: grid;
   place-items: center;
@@ -85,6 +96,7 @@ body {
   font-weight: 700;
   font-size: 0.95rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease;
 }
 
 .segnaposto.attivo span {
@@ -92,12 +104,17 @@ body {
   transform: scale(1.2);
 }
 
+/* Nascondiamo il pulsante "posizione" della mappa: usiamo il nostro in basso */
+.maplibregl-ctrl-group:has(.maplibregl-ctrl-geolocate) {
+  display: none;
+}
+
 /* ---------- Pulsanti in basso ---------- */
 .comandi {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: calc(18px + env(safe-area-inset-bottom));
+  bottom: calc(40px + env(safe-area-inset-bottom)); /* sopra la riga dei crediti della mappa */
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -260,8 +277,3 @@ body.scheda-aperta .comandi { display: none; }
 }
 
 .avviso[hidden] { display: none; }
-
-/* Punto blu della posizione */
-.punto-posizione {
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
-}

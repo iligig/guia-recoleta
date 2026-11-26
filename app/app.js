@@ -1,7 +1,7 @@
 // Guida del Cimitero della Recoleta: una mappa con le tombe e le loro storie.
 
-// Il centro della mappa quando si apre l'app
-const CENTRO_CIMITERO = [-34.5876, -58.3935];
+// Il centro della mappa quando si apre l'app (attenzione: qui prima la longitudine, poi la latitudine)
+const CENTRO_CIMITERO = [-58.3935, -34.5876];
 
 // Tutte le scritte dell'app, nelle due lingue
 const TESTI = {
@@ -38,12 +38,29 @@ let segnaposti = {};        // id della tomba -> segnaposto sulla mappa
 let inScheda = null;        // "elenco", l'id di una tomba, oppure null se la scheda è chiusa
 
 // ---------- La mappa ----------
-const mappa = L.map("mappa").setView(CENTRO_CIMITERO, 18);
+// Mappa vettoriale gratuita di OpenFreeMap (dati di OpenStreetMap):
+// il telefono la disegna al momento, quindi resta nitida a qualsiasi zoom.
+const mappa = new maplibregl.Map({
+  container: "mappa",
+  style: "https://tiles.openfreemap.org/styles/liberty",
+  center: CENTRO_CIMITERO,
+  zoom: 17,
+  maxZoom: 20,
+  dragRotate: false,          // niente rotazione: il nord resta sempre in alto
+  pitchWithRotate: false,
+  attributionControl: { compact: true },
+});
+mappa.touchZoomRotate.disableRotation();
+mappa.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(mappa);
+// Il puntino blu della posizione. Il pulsante originale è nascosto (vedi style.css):
+// usiamo il nostro "La mia posizione" in basso.
+const posizione = new maplibregl.GeolocateControl({
+  positionOptions: { enableHighAccuracy: true },
+  trackUserLocation: true,
+  fitBoundsOptions: { maxZoom: 19 },
+});
+mappa.addControl(posizione, "bottom-right");
 
 // ---------- Piccoli aiutanti ----------
 
@@ -64,6 +81,10 @@ function mostraAvviso(messaggio, durata = 3500) {
   if (durata) timerAvviso = setTimeout(() => (avviso.hidden = true), durata);
 }
 
+function nascondiAvviso() {
+  document.getElementById("avviso").hidden = true;
+}
+
 // Dal link di una fonte ricava un nome leggibile, es. "es.wikipedia.org · Eva Perón"
 function nomeFonte(indirizzo) {
   try {
@@ -77,22 +98,28 @@ function nomeFonte(indirizzo) {
 
 // ---------- I segnaposto delle tombe ----------
 function aggiungiSegnaposto(tomba, numero) {
-  const icona = L.divIcon({
-    className: "segnaposto",
-    html: `<span>${numero}</span>`,
-    iconSize: [32, 32],
-    iconAnchor: [16, 16],
+  const elemento = crea("div", "", "segnaposto");
+  elemento.append(crea("span", String(numero)));
+  elemento.title = tomba.nome;
+  elemento.setAttribute("role", "button");
+  elemento.setAttribute("aria-label", tomba.nome);
+  elemento.tabIndex = 0;
+  elemento.addEventListener("click", (evento) => {
+    evento.stopPropagation();
+    apriTomba(tomba.id);
   });
-  const segnaposto = L.marker([tomba.lat, tomba.lon], { icon: icona, title: tomba.nome, keyboard: true });
-  segnaposto.on("click", () => apriTomba(tomba.id));
-  segnaposto.addTo(mappa);
-  segnaposti[tomba.id] = segnaposto;
+  elemento.addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter" || evento.key === " ") apriTomba(tomba.id);
+  });
+
+  segnaposti[tomba.id] = new maplibregl.Marker({ element: elemento })
+    .setLngLat([tomba.lon, tomba.lat])
+    .addTo(mappa);
 }
 
 function evidenziaSegnaposto(idTomba) {
   for (const [id, segnaposto] of Object.entries(segnaposti)) {
-    const elemento = segnaposto.getElement();
-    if (elemento) elemento.classList.toggle("attivo", id === idTomba);
+    segnaposto.getElement().classList.toggle("attivo", id === idTomba);
   }
 }
 
@@ -121,13 +148,16 @@ function apriTomba(idTomba) {
 
 // Sposta la mappa in modo che la tomba resti visibile e non finisca sotto la scheda
 function centraFuoriDallaScheda(lat, lon) {
-  const zoom = Math.max(mappa.getZoom(), 18);
   const scheda = document.getElementById("scheda");
   const telefono = window.innerWidth < 720;
   // Sul telefono la scheda copre il basso; sul computer copre la sinistra
-  const spostamento = telefono ? [0, scheda.offsetHeight / 2] : [-(scheda.offsetWidth + 16) / 2, 0];
-  const punto = mappa.project([lat, lon], zoom).add(spostamento);
-  mappa.flyTo(mappa.unproject(punto, zoom), zoom, { duration: 0.6 });
+  const spostamento = telefono ? [0, -scheda.offsetHeight / 2] : [(scheda.offsetWidth + 16) / 2, 0];
+  mappa.flyTo({
+    center: [lon, lat],
+    zoom: Math.max(mappa.getZoom(), 18),
+    offset: spostamento,
+    duration: 600,
+  });
 }
 
 function disegnaScheda() {
@@ -201,53 +231,24 @@ function impostaLingua(nuovaLingua) {
 }
 
 // ---------- La posizione del visitatore ----------
-let puntoPosizione = null;
-let cerchioPrecisione = null;
-let idControlloPosizione = null;
+let posizioneTrovata = false;
+
+posizione.on("geolocate", () => {
+  if (!posizioneTrovata) {
+    posizioneTrovata = true;
+    nascondiAvviso();
+  }
+});
+posizione.on("error", () => mostraAvviso(TESTI[lingua].errore_posizione));
 
 function mostraPosizione() {
-  const testi = TESTI[lingua];
   if (!("geolocation" in navigator)) {
-    mostraAvviso(testi.errore_posizione);
+    mostraAvviso(TESTI[lingua].errore_posizione);
     return;
   }
-  // Se la stiamo già seguendo, basta ricentrare la mappa
-  if (idControlloPosizione !== null) {
-    if (puntoPosizione) mappa.flyTo(puntoPosizione.getLatLng(), 19, { duration: 0.6 });
-    return;
-  }
-
-  mostraAvviso(testi.cerco_posizione, 0);
-  let primaVolta = true;
-  idControlloPosizione = navigator.geolocation.watchPosition(
-    (posizione) => {
-      const dove = [posizione.coords.latitude, posizione.coords.longitude];
-      if (!puntoPosizione) {
-        cerchioPrecisione = L.circle(dove, {
-          radius: posizione.coords.accuracy,
-          color: "#1a73e8", weight: 1, fillOpacity: 0.12,
-        }).addTo(mappa);
-        puntoPosizione = L.circleMarker(dove, {
-          radius: 8, color: "#fff", weight: 3, fillColor: "#1a73e8", fillOpacity: 1,
-          className: "punto-posizione",
-        }).addTo(mappa);
-      } else {
-        puntoPosizione.setLatLng(dove);
-        cerchioPrecisione.setLatLng(dove).setRadius(posizione.coords.accuracy);
-      }
-      if (primaVolta) {
-        primaVolta = false;
-        document.getElementById("avviso").hidden = true;
-        mappa.flyTo(dove, 19, { duration: 0.6 });
-      }
-    },
-    () => {
-      mostraAvviso(TESTI[lingua].errore_posizione);
-      navigator.geolocation.clearWatch(idControlloPosizione);
-      idControlloPosizione = null;
-    },
-    { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 },
-  );
+  if (!posizioneTrovata) mostraAvviso(TESTI[lingua].cerco_posizione, 0);
+  // Primo tocco: trova e segue la posizione. Tocchi successivi: ricentra o smette di seguirla.
+  posizione.trigger();
 }
 
 // ---------- Avvio ----------
@@ -273,8 +274,9 @@ fetch("tombe.json")
     tombe.forEach((tomba, indice) => aggiungiSegnaposto(tomba, indice + 1));
     // Inquadra tutte le tombe, lasciando un po' di margine intorno
     if (tombe.length > 0) {
-      const tutte = L.latLngBounds(tombe.map((t) => [t.lat, t.lon]));
-      mappa.fitBounds(tutte, { padding: [40, 40], maxZoom: 19 });
+      const tutte = new maplibregl.LngLatBounds();
+      tombe.forEach((t) => tutte.extend([t.lon, t.lat]));
+      mappa.fitBounds(tutte, { padding: 50, maxZoom: 19, duration: 0 });
     }
   })
   .catch(() => mostraAvviso(TESTI[lingua].errore_dati, 0));

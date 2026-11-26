@@ -38,6 +38,8 @@ La posizione GPS funziona solo su `localhost` o su un sito `https://`.
 
 Nomi e coordinate delle tombe vengono da [OpenStreetMap](https://www.openstreetmap.org/copyright): © OpenStreetMap contributors, licenza ODbL. L'app deve mostrare questa dicitura.
 
+La mappa di sfondo è [OpenFreeMap](https://openfreemap.org/) (mappa vettoriale gratuita, dati OpenStreetMap), disegnata con la libreria [MapLibre GL JS](https://maplibre.org/). I crediti compaiono in basso nella mappa.
+
 Il foglio `altre_tombe_osm` dentro `dati/tombe.xlsx` contiene tutte le altre tombe segnate su OpenStreetMap, da cui scegliere le prossime da aggiungere.
 
 ## Strumenti
