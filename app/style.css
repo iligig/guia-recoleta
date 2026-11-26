@@ -79,12 +79,12 @@ body {
 }
 
 .segnaposto:focus-visible { outline: none; }
-.segnaposto:focus-visible span {
+.segnaposto:focus-visible .cerchio {
   outline: 3px solid #1a73e8;
   outline-offset: 2px;
 }
 
-.segnaposto span {
+.segnaposto .cerchio {
   display: grid;
   place-items: center;
   width: 32px;
@@ -99,9 +99,38 @@ body {
   transition: transform 0.15s ease;
 }
 
-.segnaposto.attivo span {
+.segnaposto.attivo .cerchio {
   background: var(--verde);
   transform: scale(1.2);
+}
+
+/* Il nome accanto al numero: sta "fuori" dal segnaposto (position: absolute),
+   così il cerchio resta esattamente sopra la tomba */
+.segnaposto .etichetta {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--testo);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+}
+
+#mappa.mostra-nomi .segnaposto .etichetta,
+.segnaposto.attivo .etichetta {
+  display: block;
+}
+
+.segnaposto.attivo .etichetta {
+  margin-left: 10px;
+  color: var(--verde);
 }
 
 /* Nascondiamo il pulsante "posizione" della mappa: usiamo il nostro in basso */

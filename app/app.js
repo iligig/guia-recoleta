@@ -64,6 +64,13 @@ const posizione = new maplibregl.GeolocateControl({
 });
 mappa.addControl(posizione, "bottom-right");
 
+// Quando la mappa è abbastanza ingrandita, accanto ai numeri compaiono i nomi delle tombe
+const ZOOM_NOMI = 18;
+function aggiornaNomi() {
+  document.getElementById("mappa").classList.toggle("mostra-nomi", mappa.getZoom() >= ZOOM_NOMI);
+}
+mappa.on("zoom", aggiornaNomi);
+
 // ---------- Piccoli aiutanti ----------
 
 // Crea un elemento HTML con un testo dentro (il testo non viene mai interpretato come codice)
@@ -101,7 +108,8 @@ function nomeFonte(indirizzo) {
 // ---------- I segnaposto delle tombe ----------
 function aggiungiSegnaposto(tomba, numero) {
   const elemento = crea("div", "", "segnaposto");
-  elemento.append(crea("span", String(numero)));
+  // Il cerchio con il numero, e accanto il nome (visibile solo quando si fa zoom: vedi style.css)
+  elemento.append(crea("span", String(numero), "cerchio"), crea("span", tomba.nome_breve || tomba.nome, "etichetta"));
   elemento.title = tomba.nome;
   elemento.setAttribute("role", "button");
   elemento.setAttribute("aria-label", tomba.nome);
@@ -308,5 +316,6 @@ fetch("tombe.json")
       tombe.forEach((t) => tutte.extend([t.lon, t.lat]));
       mappa.fitBounds(tutte, { padding: 50, maxZoom: 19, duration: 0 });
     }
+    aggiornaNomi();
   })
   .catch(() => mostraAvviso(TESTI[lingua].errore_dati, 0));

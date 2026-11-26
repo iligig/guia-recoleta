@@ -16,6 +16,7 @@ for tomba in tombe.to_dict("records"):
     risultato.append({
         "id": tomba["id"].strip(),
         "nome": tomba["nome"].strip(),
+        "nome_breve": tomba["nome_breve"].strip(),
         "lat": float(parti[0]),
         "lon": float(parti[1]),
         "storia": {

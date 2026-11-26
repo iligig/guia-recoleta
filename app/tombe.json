@@ -2,6 +2,7 @@
   {
     "id": "evita",
     "nome": "Eva Perón (bóveda Familia Duarte)",
+    "nome_breve": "Evita",
     "lat": -34.5883479,
     "lon": -58.3936941,
     "storia": {
@@ -20,6 +21,7 @@
   {
     "id": "rufina",
     "nome": "Rufina Cambaceres",
+    "nome_breve": "Rufina Cambaceres",
     "lat": -34.5881956,
     "lon": -58.3932312,
     "storia": {
@@ -38,6 +40,7 @@
   {
     "id": "liliana",
     "nome": "Liliana Crociati de Szaszak",
+    "nome_breve": "Liliana Crociati",
     "lat": -34.5883955,
     "lon": -58.3931507,
     "storia": {
@@ -55,6 +58,7 @@
   {
     "id": "sarmiento",
     "nome": "Domingo Faustino Sarmiento",
+    "nome_breve": "Sarmiento",
     "lat": -34.5885011,
     "lon": -58.3933342,
     "storia": {
@@ -73,6 +77,7 @@
   {
     "id": "quiroga",
     "nome": "Juan Facundo Quiroga",
+    "nome_breve": "Facundo Quiroga",
     "lat": -34.5875622,
     "lon": -58.3923641,
     "storia": {
